@@ -1,6 +1,10 @@
 import { Button } from '@/components/ui/button';
 
-export default function Home() {
+// used for testing loading page
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+export default async function Home() {
+  // await delay(2000);
   return (
     <div>
       <h1>Hello World</h1>
