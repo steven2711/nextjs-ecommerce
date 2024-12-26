@@ -23,7 +23,7 @@ export default function Header() {
           </Link>
         </div>
         <div className="space-x-2">
-          <Button asChild variant="ghost">
+          <Button asChild>
             <Link href="/cart">
               <ShoppingCart /> Cart
             </Link>
