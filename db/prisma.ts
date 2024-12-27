@@ -3,8 +3,10 @@ import { PrismaNeon } from '@prisma/adapter-neon';
 import { PrismaClient } from '@prisma/client';
 import ws from 'ws';
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-neonConfig.wsProxy = process.env.HTTPS_PROXY || process.env.https_proxy;
+if (process.env.NODE_ENV !== 'production') {
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+  neonConfig.wsProxy = process.env.HTTPS_PROXY || process.env.https_proxy;
+}
 
 declare global {
   var prisma: ReturnType<typeof prismaWithExtensions> | undefined;
