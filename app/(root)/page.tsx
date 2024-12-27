@@ -1,14 +1,16 @@
 import { Button } from '@/components/ui/button';
+import ProductList from '@/components/shared/product/product-list';
+import { getLatestProducts } from '@/lib/actions/product.actions';
 
 // used for testing loading page
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export default async function Home() {
+  const latestProducts = await getLatestProducts();
   // await delay(2000);
   return (
-    <div>
-      <h1>Hello World</h1>
-      <Button>Click me</Button>
-    </div>
+    <>
+      <ProductList data={latestProducts} title="Newest Arrivals" limit={4} />
+    </>
   );
 }
