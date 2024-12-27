@@ -1,7 +1,6 @@
 'use server';
 import { signinFormSchema } from '../validators';
 import { signIn, signOut } from '@/auth';
-import { getRedirectError } from 'next/dist/client/components/redirect';
 
 export async function signinWithCredentials(
   prevState: unknown,
