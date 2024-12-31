@@ -12,16 +12,17 @@ export async function signinWithCredentials(
       password: formData.get('password'),
     });
 
-    await signIn('credentials', user);
+    await signIn('credentials', {
+      email: user.email,
+      password: user.password,
+    });
 
     return { success: true, message: 'Signed in successfully' };
   } catch (error) {
     // fix?
-    if (error) {
-      throw error;
-    }
+    throw error;
 
-    return { success: true, message: 'Invalid email or password' };
+    return { success: false, message: 'Invalid email or password' };
   }
 }
 
